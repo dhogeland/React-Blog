@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import NavBar from '../NavBar/NavBar';
-import Post from '../Post/Post';
 import Title from '../Title/Title';
+import Links from '../Links/Links';
+import Post from '../Post/Post';
+import Footer from '../Footer/Footer';
 
 import "./App.css";
 
@@ -16,8 +18,9 @@ class App extends Component {
   }
 
 getInitialSite() {
-  axios.get('http://localhost:5000/api/getInitialSite')
+  axios.get('/api/getInitialSite')
     .then(response => {
+      console.log(response)
       this.setState({picture:response.data[0].url})
     })
     .catch(err => {
@@ -32,9 +35,11 @@ componentWillMount() {
   render() {
     return (
       <div>
-        <Title picture={this.state.picture}/>
         <NavBar />
+        <Title picture={this.state.picture}/>
+        <Links />
         <Post />
+        <Footer />
       </div>
     )
   }
