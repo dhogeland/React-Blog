@@ -1,0 +1,9 @@
+.main-footer-div {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+}
+
+.main-footer-content {
+  text-align: center;
+}

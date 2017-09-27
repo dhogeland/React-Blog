@@ -6,7 +6,6 @@ import './Title.css';
 class Title extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <div className="main-title-div">
         <img
