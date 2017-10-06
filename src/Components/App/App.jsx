@@ -20,11 +20,11 @@ class App extends Component {
 getInitialSite() {
   axios.get('/api/getInitialSite')
     .then(response => {
-      console.log(response)
-      this.setState({picture:response.data[0].url})
+      this.setState({picture:response.data.url})
     })
     .catch(err => {
-      console.log('error', err)
+      console.log('error', err.response)
+      console.log('things')
       return err;
     });
 }
