@@ -4,7 +4,7 @@ module.exports = {
     let db = req.app.get('db');
     db.getInitialSite()
       .then(info => {
-        res.status(200).json(info)
+        res.status(200).json(info[0])
       })
       .catch(err => {
         console.log('error on serverController', err)

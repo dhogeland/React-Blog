@@ -1,4 +1,4 @@
-const port        = 3001,
+const port        = 5001,
       express     = require('express'),
       massive     = require('massive'),
       cors        = require('cors'),
@@ -10,8 +10,9 @@ const port        = 3001,
 
 massive(config.postgresql)
   .then(dbInstance => {
-    db = dbInstance;
+    const db = dbInstance;
     app.set('db', dbInstance)
+    console.log('db connected')
   })
   .catch(err => {
     console.log(err)
@@ -23,5 +24,4 @@ app.use(bodyParser.json());
 
 app.get('/api/getInitialSite', srvCtrl.getInitialSite);
 
-
-app.listen(port, () => console.log('The eagle has landed...'));
+app.listen(port, () => console.log('The eagle has landed...' + port));
